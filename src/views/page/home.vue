@@ -42,9 +42,12 @@ export default {
     height: 100%;
   }
   .hide {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
   nav {
+    /* 固定定位 */
+    position: fixed;
+    z-index: 99;
     transition: 0.5s;
   }
 }

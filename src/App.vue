@@ -14,11 +14,15 @@ export default {
     Home
   },
   mounted() {
+    // 修改标题
     document.title = 'Vue2 版本的 50 个案例';
   }
 }
 </script>
 <style lang="less">
+body {
+  background-color: #e2c8db;
+}
 ul {
   list-style: none;
 }

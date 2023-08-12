@@ -31,15 +31,14 @@ export default {
 
 <style scoped lang="less">
 .menu-main {
-  /* 固定定位 */
-  position: fixed;
   width: 300px;
   height: 100vh;
   background-color: #c584b3;
 }
 
 .menus {
-  margin: 50px 0 50px -50px;
+  margin: 0 0 50px -50px;
+  padding-top: 50px;
   color: #fff;
 }
 
