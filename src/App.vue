@@ -23,11 +23,18 @@ export default {
 body {
   background-color: #e2c8db;
 }
+/* 去除列表的默认样式 */
 ul {
   list-style: none;
 }
+/* 去除链接的默认样式 */
 a {
   text-decoration: none;
   color: inherit;
+}
+/* 获取焦点时，去除轮廓线 */
+button:focus,
+input:focus {
+  outline: none;
 }
 </style>

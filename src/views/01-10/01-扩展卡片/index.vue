@@ -7,7 +7,7 @@
            :style="`background-image: url(${item.bgImg});`">
         <div class="shadow"></div>
         <div class="content">
-          <div class="icon">{{item.icon}}</div>
+          <div class="icon">{{ item.icon }}</div>
           <div class="text">
             <div class="tit">{{ item.tit }}</div>
             <div class="sub">{{ item.sub }}</div>
@@ -19,48 +19,45 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       currentIndex: 0,
       dataArr: [
         {
-          bgImg: "https://picsum.photos/1920/1080?random=1",
+          // bgImg: "https://picsum.photos/1920/1080?random=1",
+          bgImg: require('./img/1.jpg'),
           icon: '1',
           tit: '这是第 1 个标题',
           sub: '这是一段描述'
         },
         {
-          bgImg: "https://picsum.photos/1920/1080?random=2",
+          bgImg: require('./img/2.jpg'),
           icon: '2',
           tit: '这是第 2 个标题',
           sub: '这是一段描述'
         },
         {
-          bgImg: "https://picsum.photos/1920/1080?random=3",
+          bgImg: require('./img/3.jpg'),
           icon: '3',
           tit: '这是第 3 个标题',
           sub: '这是一段描述'
         },
         {
-          bgImg: "https://picsum.photos/1920/1080?random=4",
+          bgImg: require('./img/4.jpg'),
           icon: '4',
           tit: '这是第 4 个标题',
           sub: '这是一段描述'
         },
         {
-          bgImg: "https://picsum.photos/1920/1080?random=5",
+          bgImg: require('./img/5.jpg'),
           icon: '5',
           tit: '这是第 5 个标题',
           sub: '这是一段描述'
         }
       ]
     }
-  },
-  methods: {},
-  created() {
-  },
-  mounted() {
   }
 };
 
@@ -69,11 +66,13 @@ export default {
 <style lang="less" scoped>
 .main-01 {
   /* 100%窗口高度 */
-  height: 100vh;
+  height: 100%;
   /* 弹性布局 水平+垂直居中 */
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  //background-image: url("./img/1.jpg");
   /* 径向渐变背景 */
   //background: radial-gradient(circle at top center, #718497, #29323c);
 }
