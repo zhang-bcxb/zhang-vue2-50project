@@ -18,6 +18,9 @@
             <a href="javascript:;" target="_self" @click="()=>{$emit('switchMenu', isShowMenu=!isShowMenu);}">菜单</a>
           </li>
           <li>
+            <a href="/main" target="_self">首页</a>
+          </li>
+          <li>
             <a href="javascript:;" @click="contactMe()" target="_self">联系</a>
           </li>
         </ul>

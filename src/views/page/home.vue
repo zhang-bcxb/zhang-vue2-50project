@@ -47,9 +47,10 @@ export default {
   nav {
     /* 固定定位 */
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 99;
     transition: 0.5s;
   }
 }
-
 </style>

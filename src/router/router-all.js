@@ -2,10 +2,19 @@ import data from '../assets/data/50.json'
 
 // 固定不变的路由数组
 export const initRouter = [
-  // {
-  //   path: '/',
-  //   redirect: '/login', // 访问根路径的时候重定向到 login
-  // }
+  {
+    path: '/',
+    redirect: '/main', // 访问根路径的时候重定向到 login
+  },
+  {
+    path: '/main',
+    component: () => import('../views/main/index.vue')
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: () => import('../views/page/NotFound.vue') // 路由懒加载
+  }
 ]
 
 // 处理项目路由
