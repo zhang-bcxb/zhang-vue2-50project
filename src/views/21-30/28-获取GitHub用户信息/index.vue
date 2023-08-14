@@ -7,12 +7,12 @@
 
     <!-- 内容卡片 -->
     <main id="main">
-      <div class="card" v-if="userData.name">
+      <div class="card" v-if="githubName">
         <div>
-          <img :src="userData.avatar_url" :alt="userData.name" class="avatar">
+          <img :src="userData.avatar_url" :alt="githubName" class="avatar">
         </div>
         <div class="user-info">
-          <h2>{{ userData.name || userData.login }}</h2>
+          <h2>{{ githubName }}</h2>
           <p>{{ userData.bio ? userData.bio : 'bio不存在' }}</p>
           <ul>
             <li>{{ userData.followers }} <strong>Followes</strong></li>
@@ -39,6 +39,7 @@ export default {
     return {
       apiUrl: 'https://api.github.com/users/',
       searchVal: '',
+      githubName: '',
       userData: {},
       reposData: []
     }
@@ -55,7 +56,9 @@ export default {
             // 处理解析后的 JSON 数据
             console.log(data)
             this.userData = data
+            this.githubName = ''
             if (data.message != 'Not Found') {
+              this.githubName = this.userData.name || this.userData.login
               this.getRepos(username)
             }
           })

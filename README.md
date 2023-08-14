@@ -22,14 +22,14 @@
 - 项目相关的 CDN
 
 ```
-<!-- 样式重置-->
+<!-- 样式重置 -->
 <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
 <!-- 导入图标【https://fa5.dashgame.com/#/图标】 -->
 <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
 
 <!-- 对话框【https://sweetalert2.github.io/】 -->
 <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.21.1/sweetalert2.all.min.js"></script>
-<!--  MD文本转 HTML【https://marked.js.org/】 -->
+<!-- MD文本转 HTML【https://marked.js.org/】 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.2.2/marked.min.js"></script>
 ```
 
