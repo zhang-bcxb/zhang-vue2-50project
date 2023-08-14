@@ -3,7 +3,7 @@
 ## 项目说明
 
 - 本项目用到的技术：Vue2
-
+- 本项目使用的开发工具：WebStorm
 - 本项目是按照下面的项目进行改造的【50-Case-Studies】
 
 [![](https://github-readme-stats.vercel.app/api/pin/?username=zhang-bcxb&repo=50-Case-Studies&show_icons=true&bg_color=30,e96443,904e95&title_color=fff&text_color=fff&icon_color=fff)](https://github.com/zhang-bcxb/50-Case-Studies)
@@ -13,6 +13,7 @@
 - 运行命令 
 
 ```
+克隆项目：git clone https://github.com/zhang-bcxb/zhang-vue2-50project.git
 安装依赖：npm install
 运行项目：npm run serve
 打包项目：npm run build
@@ -60,7 +61,12 @@ https://source.unsplash.com/random/310x310
 
 ![创建项目](doc/创建项目.png)
 
-## 项目运行说明
+- WebStorm 运行配置
+
+![运行配置](doc/运行配置.png)
+![运行效果](doc/控制台运行效果.png)
+
+## 项目运行效果
 
 - 项目首页截图
 
