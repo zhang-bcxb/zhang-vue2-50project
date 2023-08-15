@@ -2,8 +2,8 @@
   <div class="menu-main">
     <ul class="menus">
       <li class="li" v-for='(item1,index1) in allData' :key="index1">
-        <i class="fa fa-th-large" aria-hidden="true"></i>
-        案例 {{ indexArr[index1] }}
+        <i :class="indexArr[index1].icon" aria-hidden="true"></i>
+        案例 {{ indexArr[index1].name }}
         <ul>
           <li v-for='(item2,index2) in item1' :key="index2">
             <router-link :to="item2.projectPath">{{ item2.projectName }}</router-link>
@@ -23,7 +23,13 @@ export default {
   data() {
     return {
       allData: data,
-      indexArr: ["01-10", "11-20", "21-30", "31-40", "41-50"]
+      indexArr: [
+        {name: "01-10", icon: "fa fa-th-large"},
+        {name: "11-20", icon: "fa fa-check-square"},
+        {name: "21-30", icon: "fa fa-comment"},
+        {name: "31-40", icon: "fa fa-tags"},
+        {name: "41-50", icon: "fa fa-bars"},
+      ]
     }
   }
 }

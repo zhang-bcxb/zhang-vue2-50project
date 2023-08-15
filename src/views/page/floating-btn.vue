@@ -9,7 +9,7 @@
     <div :class="['social-panel-container', isShow?'visible':'']">
       <div class="social-panel">
         <p>
-          创建人<a target="_blank" href="https://github.com/zhang-bcxb/50-Case-Studies">编程细胞</a>
+          创建人<a target="_blank" href="https://github.com/zhang-bcxb/zhang-vue2-50project">编程细胞</a>
         </p>
         <button class="close-btn" @click="()=>{isShow=false}">X</button>
         <h4>页面关联按钮</h4>
