@@ -1,31 +1,38 @@
 <template>
   <div class="main-46">
     <div class="quiz-container" id="quiz">
-      <div class="quiz-header">
-        <!-- 问题标题 -->
-        <h2 id="question">你喜欢编程细胞吗？</h2>
-        <!--四个答题选项-->
-        <ul>
-          <li>
-            <input type="radio" name="answer" id="a" class="answer">
-            <label for="a" id="a_text">特别喜欢</label>
-          </li>
-          <li>
-            <input type="radio" name="answer" id="b" class="answer">
-            <label for="b" id="b_text">超级喜欢</label>
-          </li>
-          <li>
-            <input type="radio" name="answer" id="c" class="answer">
-            <label for="c" id="c_text">当然喜欢</label>
-          </li>
-          <li>
-            <input type="radio" name="answer" id="d" class="answer">
-            <label for="d" id="d_text">以上都是</label>
-          </li>
-        </ul>
-      </div>
-      <!-- 提交按钮 -->
-      <button id="submit">提交</button>
+      <template v-if="isShow">
+        <div class="quiz-header">
+          <!-- 问题标题 -->
+          <h2>{{ questionData[currentIndex].question }}</h2>
+          <!--四个答题选项-->
+          <ul>
+            <li>
+              <input type="radio" name="answer" id="a" value="a" v-model="checkVal" class="answer">
+              <label for="a">{{ questionData[currentIndex].a }}</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" id="b" value="b" v-model="checkVal" class="answer">
+              <label for="b">{{ questionData[currentIndex].b }}</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" id="c" value="c" v-model="checkVal" class="answer">
+              <label for="c">{{ questionData[currentIndex].c }}</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" id="d" value="d" v-model="checkVal" class="answer">
+              <label for="d">{{ questionData[currentIndex].d }}</label>
+            </li>
+          </ul>
+        </div>
+        <!-- 提交按钮 -->
+        <button id="submit" @click="submitHandle">提交</button>
+      </template>
+
+      <template v-else>
+        <h2>你答对了{{ score }}/ {{ questionData.length }}个问题</h2>
+        <button onclick="location.reload()">重新加载</button>
+      </template>
     </div>
   </div>
 </template>
@@ -33,9 +40,69 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      // 当前回答问题的索引
+      currentIndex: 0,
+      // 分数
+      score: 0,
+      // 选中的值
+      checkVal: '',
+      // 是否显示问题
+      isShow: true,
+      // 问题数据
+      questionData: [
+        {
+          question: '【1】你喜欢编程细胞吗？',
+          a: '特别喜欢',
+          b: '超级喜欢',
+          c: '当然喜欢',
+          d: '以上都是',
+          answer: 'a'
+        }, {
+          question: '【2】你喜欢编程细胞吗？',
+          a: '特别喜欢',
+          b: '超级喜欢',
+          c: '当然喜欢',
+          d: '以上都是',
+          answer: 'b'
+        }, {
+          question: '【3】你喜欢编程细胞吗？',
+          a: '特别喜欢',
+          b: '超级喜欢',
+          c: '当然喜欢',
+          d: '以上都是',
+          answer: 'c'
+        }, {
+          question: '【4】你喜欢编程细胞吗？',
+          a: '特别喜欢',
+          b: '超级喜欢',
+          c: '当然喜欢',
+          d: '以上都是',
+          answer: 'd'
+        }
+      ]
+    }
   },
   methods: {
+    submitHandle() {
+      console.log(this.checkVal)
+      let index = this.currentIndex
+      if (this.checkVal) {
+        // 选对
+        if (this.checkVal === this.questionData[index].answer) {
+          this.score++
+        }
+        this.checkVal = ''
+        index++
+        if (index >= this.questionData.length) {
+          console.log('题目答完')
+          this.isShow = false
+        } else {
+          console.log('正在答题')
+          this.currentIndex = index
+        }
+      }
+    }
   }
 };
 

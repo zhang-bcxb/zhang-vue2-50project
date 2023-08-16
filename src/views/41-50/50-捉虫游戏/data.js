@@ -1,4 +1,4 @@
-const globalData = {
+export const globalData = {
   en: {
     documentTitle: 'insect-catch-game',
     firstTitle: 'Catch The Insect',

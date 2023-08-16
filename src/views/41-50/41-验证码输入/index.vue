@@ -4,12 +4,9 @@
       <h2>验证你的账户</h2>
       <p>我们将六位代码发邮件至 xxxx@email.com 输入下面的代码来确认您的电子邮件地址。</p>
       <div class="code-container">
-        <input type="number" class="code" placeholder="0" min="0" max="9" required>
-        <input type="number" class="code" placeholder="0" min="0" max="9" required>
-        <input type="number" class="code" placeholder="0" min="0" max="9" required>
-        <input type="number" class="code" placeholder="0" min="0" max="9" required>
-        <input type="number" class="code" placeholder="0" min="0" max="9" required>
-        <input type="number" class="code" placeholder="0" min="0" max="9" required>
+        <input type="number" class="code" placeholder="0" min="0" max="9" required
+               @keydown="keydownHandle(index,$event)"
+               v-for='(item,index) in codeNum' :key="index">
       </div>
       <small class="info">
         这只是设计。我们没有给你发邮件，因为我们没有你的邮件
@@ -21,9 +18,38 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      // 验证码位数
+      codeNum: 6,
+      // 所有的验证码输入框
+      codeInput: null
+    }
+  },
+  mounted() {
+    this.codeInput = document.querySelectorAll('.code')
+    this.codeInput[0].focus()
   },
   methods: {
+    // 键盘按下处理
+    keydownHandle(index, event) {
+      if (event.key >= 0 && event.key <= 9) {
+        // 按下的是数字
+        if (index !== this.codeNum - 1) {
+          // 当前的输入框不是最后一个
+          this.codeInput[index].value = ''
+          setTimeout(() => this.codeInput[index + 1].focus(), 10)
+        } else {
+          // 当前的输入框是最后一个
+          this.codeInput[index].value = ''
+        }
+      } else if (e.key === 'Backspace') {
+        // 判断是否是退格键
+        if (index !== 0) {
+          // 当前输入框不是第一个
+          setTimeout(() => this.codeInput[index - 1].focus(), 10)
+        }
+      }
+    }
   }
 };
 
@@ -36,6 +62,10 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* 大容器 */

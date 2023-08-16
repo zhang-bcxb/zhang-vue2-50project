@@ -4,12 +4,12 @@
       <div class="progress-bar"></div>
       <div class="fas fa-quote-right fa-quote"></div>
       <div class="fas fa-quote-left fa-quote"></div>
-      <p class="testimonial">欢迎语</p>
+      <p class="testimonial">{{ cardData[currentIndex].text }}</p>
       <div class="user">
-        <img class="user-image" src="./logo.jpg" alt="">
+        <img class="user-image" :src="cardData[currentIndex].photo" alt="">
         <div class="user-info">
-          <h4 class="username">用户名</h4>
-          <p class="role">角色</p>
+          <h4 class="username">{{ cardData[currentIndex].name }}</h4>
+          <p class="role">{{ cardData[currentIndex].role }}</p>
         </div>
       </div>
     </div>
@@ -19,9 +19,52 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      // 当前显示的卡片数据
+      currentIndex: 0,
+      // 定时器
+      timer: null,
+      // 卡片数据
+      cardData: [
+        {
+          name: '小行星1',
+          role: '主播1',
+          photo: require('./logo.jpg'),
+          text: '【1】我是编程细胞，欢迎一起交流学习',
+        },
+        {
+          name: '小行星2',
+          role: '主播2',
+          photo: require('./logo.jpg'),
+          text: '【2】我是编程细胞，欢迎一起交流学习',
+        },
+        {
+          name: '小行星3',
+          role: '主播3',
+          photo: require('./logo.jpg'),
+          text: '【3】我是编程细胞，欢迎一起交流学习',
+        }
+      ]
+    }
   },
-  methods: {}
+  mounted() {
+    // 定时器（需要和动画的持续时间保持一致）
+    this.timer = setInterval(this.updateCard, 3000)
+  },
+  destroyed() {
+    clearInterval(this.timer)
+  },
+  methods: {
+    updateCard() {
+      let index = this.currentIndex
+      index++
+      // 边界处理
+      if (index > this.cardData.length - 1) {
+        index = 0
+      }
+      this.currentIndex = index
+    }
+  }
 };
 
 </script>
@@ -82,14 +125,20 @@ export default {
   height: 75px;
   width: 75px;
   object-fit: cover;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 /* 右边-用户信息 */
+.user .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 用户名 */
 .user .username {
   margin: 0;
-
 }
 
 /* 角色 */

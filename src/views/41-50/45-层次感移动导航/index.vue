@@ -1,33 +1,31 @@
 <template>
   <div class="main-45">
     <!-- 内容区域 -->
-    <button class="nav-btn open-btn">
+    <button class="nav-btn open-btn" @click="isShow=true">
       <i class="fas fa-bars"></i>
     </button>
     <img src="./logo.jpg" alt="" class="logo">
     <p class="text">编程细胞</p>
 
     <!-- 导航栏 -->
-    <div class="nav nav-black ">
-      <div class="nav nav-red">
-        <div class="nav nav-white">
+    <div :class="['nav','nav-black',{'visible':isShow}]">
+      <div :class="['nav','nav-red',{'visible':isShow}]">
+        <div :class="['nav','nav-white',{'visible':isShow}]">
           <!-- 关闭按钮 -->
-          <button class="nav-btn close-btn">
+          <button class="nav-btn close-btn" @click="isShow=false">
             <i class="fas fa-times"></i>
           </button>
           <!-- 头像 -->
           <img src="./logo.jpg" alt="" class="logo">
           <!-- 导航选项 -->
           <ul class="list">
-            <li><a href="#">Teams</a></li>
-            <li><a href="#">Locations</a></li>
-            <li><a href="#">Life at </a></li>
+            <li><a href="#">团队</a></li>
+            <li><a href="#">位置</a></li>
+            <li><a href="#">生活</a></li>
             <li>
               <ul>
-                <li><a href="#">culture memo</a></li>
-                <li><a href="#">Work life balance</a></li>
-                <li><a href="#">Inclusion & diversity</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="https://github.com/zhang-bcxb" target="_blank">GitHub</a></li>
+                <li><a href="https://space.bilibili.com/337439992" target="_blank">Bilibili</a></li>
               </ul>
             </li>
           </ul>
@@ -40,10 +38,11 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      isShow: false
+    }
   },
-  methods: {
-  }
+  methods: {}
 };
 
 </script>

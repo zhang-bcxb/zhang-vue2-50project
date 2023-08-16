@@ -2,7 +2,8 @@
   <div class="main-48">
     <h1>随机图像</h1>
     <div class="container">
-
+      <img :src="item" :alt="`img-${index+1}`" loading="lazy"
+           v-for='(item,index) in imgArr' :key="index"/>
     </div>
   </div>
 </template>
@@ -10,9 +11,31 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      imgPath: 'https://source.unsplash.com/random/',
+      imgArr: []
+    }
   },
-  methods: {}
+  created() {
+    this.getImgData()
+  },
+  methods: {
+    // 获得图片数据
+    getImgData() {
+      // 一行3张图片，有五行
+      for (let i = 0; i < 15; i++) {
+        this.imgArr.push(`${this.imgPath}${this.getRandomSize()}`)
+      }
+    },
+    // 获得随机的图片尺寸
+    getRandomSize() {
+      return `${this.getRandomValue()}x${this.getRandomValue()}`
+    },
+    // 获取单个随机尺寸
+    getRandomValue() {
+      return Math.floor(Math.random() * 10) + 300
+    }
+  }
 };
 
 </script>

@@ -6,14 +6,26 @@
       <header class="header">
         <h4 class="title">在线搜索用户</h4>
         <small class="subtitle">搜索用户名或者位置信息</small>
-        <input type="text" id="filter" placeholder="搜索">
+        <input type="text" id="filter" placeholder="搜索"
+               @input="searchData" v-model="searchVal" >
       </header>
 
       <!-- 用户列表 -->
       <ul id="result" class="user-list">
-        <li>
-          <h3>加载中...</h3>
-        </li>
+        <template v-if="listData.length<=0">
+          <li>
+            <h3>加载中...</h3>
+          </li>
+        </template>
+        <template v-if="listData.length>0">
+          <li v-show="!item.isHide" v-for='(item,index) in listData' :key="index">
+            <img :src="item.picture.large" :alt="item.name.first">
+            <div class="user-info">
+              <h4>{{ item.name.first + "  " + item.name.last }}</h4>
+              <p>{{ item.location.city + ", " + item.location.country }}</p>
+            </div>
+          </li>
+        </template>
       </ul>
 
     </div>
@@ -23,9 +35,39 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      // 列表数据
+      listData: [],
+      // 查找的字符串
+      searchVal: ''
+    }
+  },
+  created() {
+    this.getData()
   },
   methods: {
+    // 获取数据
+    async getData() {
+      // Fetch API 提供了一个 JavaScript 接口，跨网络异步获取资源。
+      const res = await fetch('https://randomuser.me/api?results=10')
+      const {results} = await res.json()
+      this.listData = results
+    },
+    // 查找数据（过滤数据）
+    searchData() {
+      this.listData.forEach((item) => {
+        let str = item.name.first + item.name.last + item.location.city + item.location.country
+        // 将搜索到的进行显示，没搜索到的进行隐藏
+        // 将英文都转成小写，然后进行查找（模糊查询）
+        if (str.toLowerCase().includes(this.searchVal.toLowerCase())) {
+          // item.classList.remove('hide')
+          item.isHide = false
+        } else {
+          // item.classList.add('hide')
+          item.isHide = true
+        }
+      })
+    }
   }
 };
 
@@ -38,6 +80,10 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* 大容器 */
