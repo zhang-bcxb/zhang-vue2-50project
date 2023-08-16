@@ -17,6 +17,8 @@ export default {
     }
   },
   created() {
+    // 修改 body 的溢出隐藏，需要滚动条
+    document.body.style.overflow = ''
     this.getImgData()
   },
   methods: {

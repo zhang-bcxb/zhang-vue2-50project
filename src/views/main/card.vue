@@ -19,7 +19,7 @@ export default {
         imgSrc: require('../../assets/img/01-扩展卡片.png'),
         h2Text: '第 1 个案例',
         h3Text: '密码长度改变图片模糊',
-        aHref: '/01'
+        aHref: '#/01'
       }
     }
   },
@@ -38,7 +38,7 @@ export default {
         imgSrc: require('../../assets/img/' + data.projectImg),
         h2Text: `第 ${data.projectPath.slice(1)} 个案例`,
         h3Text: data.projectName,
-        aHref: data.projectPath
+        aHref: '#' + data.projectPath
       }
     }
   },

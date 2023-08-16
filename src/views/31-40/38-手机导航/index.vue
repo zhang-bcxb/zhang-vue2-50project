@@ -52,6 +52,10 @@ export default {
     navHandle(index) {
       this.currentIndex = index
     }
+  },
+  created() {
+    // 修改 body 的溢出隐藏，需要滚动条
+    document.body.style.overflow = ''
   }
 };
 

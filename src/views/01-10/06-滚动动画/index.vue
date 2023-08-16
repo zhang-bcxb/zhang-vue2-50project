@@ -16,13 +16,15 @@ export default {
     }
   },
   mounted() {
+    // 修改 body 的溢出隐藏，需要滚动条
+    document.body.style.overflow = ''
     // 第一次启动，也运行一次
     this.checkBoxes()
     // 注册滚动事件
     window.addEventListener('scroll', this.debounce(this.checkBoxes))
   },
   destroyed() {
-    window.removeEventListener('scroll',this.debounce(this.checkBoxes))
+    window.removeEventListener('scroll', this.debounce(this.checkBoxes))
   },
   methods: {
     // 防抖函数

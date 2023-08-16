@@ -28,6 +28,10 @@ export default {
       notes: JSON.parse(window.localStorage.getItem("notes") || "[]")
     }
   },
+  created() {
+    // 修改 body 的溢出隐藏，需要滚动条
+    document.body.style.overflow = ''
+  },
   // 监听属性
   watch: {
     // 每次数据更新，都会进行数据持久化

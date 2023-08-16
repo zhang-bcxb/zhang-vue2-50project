@@ -46,6 +46,8 @@ export default {
     }
   },
   mounted() {
+    // 修改 body 的溢出隐藏，需要滚动条
+    document.body.style.overflow = ''
     // 绑定滚动事件
     window.addEventListener('scroll', this.fixNav)
   },
