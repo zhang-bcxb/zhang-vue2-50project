@@ -22,11 +22,10 @@
 - 项目相关的 CDN
 
 ```
-<!-- 样式重置 -->
-<link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet">
 <!-- 导入图标【https://fa5.dashgame.com/#/图标】 -->
 <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
 <!-- 功能类优先的 CSS 框架【案例39】【https://www.tailwindcss.cn/】 -->
+<!-- 不要全局导入，容易影响别的项目样式 -->
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 <!-- 对话框【https://sweetalert2.github.io/】 -->

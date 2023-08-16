@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+// 引入文件
+@import "../../../assets/css/tailwind2.min.css";
+
 .main-39 {
   /* 水平垂直居中 */
   display: flex;

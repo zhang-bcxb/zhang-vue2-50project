@@ -90,7 +90,7 @@ export default {
 
 /* 提示文本 */
 h3 {
-  color: #fff;
+  color: #000;
   margin: 10px 0 20px;
   text-align: center;
   line-height: 25px;

@@ -49,8 +49,8 @@ export default {
 /* 按钮 */
 .magic {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 15px;
+  //left: 20px;
 
   background-color: #f9ca24;
   color: #fff;

@@ -36,7 +36,7 @@ export default {
       // 当前倒满的杯子
       currentCup: 0,
       // 大杯子的提示
-      liters: ''
+      liters: '2L'
     }
   },
   methods: {

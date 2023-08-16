@@ -32,6 +32,7 @@
 export default {
   data() {
     return {
+      // 是否显示导航栏
       isShow: false
     }
   },
@@ -47,8 +48,7 @@ export default {
 
 /*大盒子*/
 .container {
-  /* background-color: #fafafa; */
-  //background-image: url('https://picsum.photos/1920/1080?random=1');
+
   background-image: url(bg.png);
   background-size: cover;
   width: 100vw;
@@ -143,12 +143,10 @@ nav {
 }
 
 .container.show-nav + nav {
-  left: 0;
+  transition-delay: 0.3s;
+  left: 20px;
 }
 
-nav ul {
-  list-style-type: none;
-}
 
 nav ul li {
   text-transform: uppercase;

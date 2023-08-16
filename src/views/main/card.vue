@@ -117,6 +117,7 @@ div.card a {
 }
 
 div.card h2 {
+  font-size: 25px;
   word-spacing: -0.15em;
   font-weight: 300;
   text-transform: uppercase;
@@ -127,6 +128,7 @@ div.card h2 {
 }
 
 div.card h3 {
+  font-size: 18px;
   font-weight: 200;
   -webkit-transition-delay: 0s;
   transition-delay: 0s;

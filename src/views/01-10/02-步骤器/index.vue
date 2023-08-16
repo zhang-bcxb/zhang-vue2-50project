@@ -13,8 +13,11 @@
       </div>
 
       <!--按钮，开始禁用上一个按钮-->
-      <button @click="prevBtn" class="btn" id="prev" :disabled="isPrev">上一个</button>
-      <button @click="nextBtn" class="btn" id="next" :disabled="isNext">下一个</button>
+      <div>
+        <button @click="prevBtn" class="btn" id="prev" :disabled="isPrev">上一个</button>
+        <button @click="nextBtn" class="btn" id="next" :disabled="isNext">下一个</button>
+      </div>
+
     </div>
   </div>
 </template>
@@ -92,14 +95,16 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
-  margin: 0;
 }
 
 /* 大盒子容器 */
 .container {
-  /* 行内元素水平居中 */
-  text-align: center;
+  ///* 行内元素水平居中 */
+  //text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 进度条盒子 */

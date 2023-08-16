@@ -32,13 +32,13 @@ export default {
           type: "text",
           value: "",
           required: true,
-          label: "email"
+          label: "Email"
         },
         {
           type: "password",
           value: "",
           required: true,
-          label: "password"
+          label: "Password"
         }
       ]
     }
@@ -57,13 +57,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  height: 100%;
 }
 
 /* 大盒子 */
 .container {
+  width: auto;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 20px 40px;
   border-radius: 5px;

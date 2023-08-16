@@ -21,6 +21,7 @@ export default {
 </script>
 <style lang="less">
 body {
+  margin: 0;
   background-color: #e2c8db;
 }
 
