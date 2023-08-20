@@ -8,12 +8,18 @@ export const initRouter = [
   },
   {
     path: '/main',
-    component: () => import('../views/main/index.vue')
+    component: () => import('../views/main/index.vue'),
+    meta: {
+      title: "首页"
+    }
   },
   {
     path: '*',
     name: 'NotFound',
-    component: () => import('../views/page/NotFound.vue') // 路由懒加载
+    component: () => import('../views/page/NotFound.vue'),
+    meta: {
+      title: "404"
+    }
   }
 ]
 
@@ -31,7 +37,10 @@ export const proRouterHandle = () => {
     item1.forEach((item2) => {
       proRouter.push({
         path: item2.projectPath,
-        component: () => import(`../views/${indexArr[index]}/${item2.projectName}/index.vue`)
+        component: () => import(`../views/${indexArr[index]}/${item2.projectName}/index.vue`),
+        meta: {
+          title: `${item2.projectName.substr(3)}`
+        }
       })
     })
   })

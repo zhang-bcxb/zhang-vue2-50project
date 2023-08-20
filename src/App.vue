@@ -15,7 +15,7 @@ export default {
   },
   mounted() {
     // 修改标题
-    document.title = 'Vue2 版本的 50 个案例';
+    // document.title = 'Vue2 版本的 50 个案例';
   }
 }
 </script>
@@ -40,6 +40,12 @@ a {
 button:focus,
 input:focus {
   outline: none;
+}
+
+/* 修改进度条样式 */
+#nprogress .bar {
+  background-color: blue !important;
+  height: 3px !important;
 }
 
 /* 滚动条 */
