@@ -125,6 +125,8 @@ export default {
   padding: 40px;
   position: relative;
   transition-delay: 0s;
+  /* 改变盒子大小的计算方式，不增加额外的内边距 */
+  box-sizing: border-box;
 }
 
 .nav-white.visible {
